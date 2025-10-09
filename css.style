@@ -32,9 +32,9 @@
     <p>📧 Email: akanksharakshe13@gmail.com<br>📱 Phone: 9322367084<br>📸 Instagram: <a href="https://instagram.com/The_Dryfruits_House" target="_blank">@The_Dryfruits_House</a></p>
     
     <form onsubmit="alert('Message sent!'); return false;">
-      <input name="name" placeholder="तुमचं नाव" required>
-      <input name="contact" placeholder="ईमेल किंवा फोन" required>
-      <textarea name="message" placeholder="संदेश" required></textarea>
+      <input name="name" placeholder="Names" required>
+      <input name="contact" placeholder="Email or Mobile No" required>
+      <textarea name="message" placeholder="Contact No" required></textarea>
       <button type="submit" class="btn">Send Message</button>
     </form>
 
