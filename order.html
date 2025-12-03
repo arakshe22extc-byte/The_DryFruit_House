@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DryFruits House — Place Order</title>
+<style>
+body{margin:0;font-family:Inter,Arial;background:#fff8f0;color:#333}
+header{padding:20px;text-align:center;background:#8B5E3C;color:white}
+h1{margin:0;font-size:28px}
+.container{max-width:600px;margin:auto;padding:20px}
+form{display:flex;flex-direction:column;gap:12px}
+input,textarea{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:16px}
+button{padding:12px;background:#8B5E3C;color:white;border-radius:10px;border:0;cursor:pointer;font-size:16px}
+footer{padding:20px;text-align:center;color:#666;font-size:14px;border-top:1px solid #f0f0f0;margin-top:24px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Place Your Order</h1>
+</header>
+<main class="container">
+  <form id="orderForm">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="address" rows="4" placeholder="Delivery Address" required></textarea>
+    <textarea name="orderDetails" rows="4" placeholder="Your Order Details (e.g., 1kg Almonds, 500g Dates)" required></textarea>
+    <button type="submit">Place Order</button>
+  </form>
+  <div id="successMsg" style="display:none;color:green;margin-top:10px">Order placed successfully! Check your email.</div>
+  <footer>
+    © <span id="year"></span> The DryFruits House
+  </footer>
+</main>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+  console.log('Order Data:', data);
+  alert('Order placed! You will receive an email confirmation.');
+  this.reset();
+  document.getElementById('successMsg').style.display='block';
+});
+</script>
+</body>
+</html>
