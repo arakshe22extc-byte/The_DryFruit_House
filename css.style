@@ -1,49 +1,50 @@
-<!doctype html>
-<html lang="mr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The DryFruits House - Contact</title>
-  <style>
-    body{font-family:Arial,sans-serif;margin:0;color:#333;background:#fff8f0}
-    header{background:#b5651d;padding:15px 20px;color:#fff;display:flex;justify-content:space-between;align-items:center}
-    header a{color:#fff;text-decoration:none;margin-left:15px;font-weight:600}
-    nav a:hover{text-decoration:underline}
-    section{padding:20px}
-    h1{color:#b5651d}
-    form input, form textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #ccc}
-    .btn{background:#b5651d;color:#fff;padding:10px 15px;border-radius:8px;border:none;cursor:pointer}
-    .qr{max-width:250px;border-radius:12px;margin-top:10px}
-    footer{text-align:center;padding:15px;background:#f2e6dc;color:#666;margin-top:20px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The DryFruits House — Place Order</title>
+<style>
+body{margin:0;font-family:Inter,Arial;background:#fff8f0;color:#333}
+header{padding:20px;text-align:center;background:#8B5E3C;color:white}
+h1{margin:0;font-size:28px}
+.container{max-width:600px;margin:auto;padding:20px}
+form{display:flex;flex-direction:column;gap:12px}
+input,textarea{padding:10px;border-radius:8px;border:1px solid #ddd;font-size:16px}
+button{padding:12px;background:#8B5E3C;color:white;border-radius:10px;border:0;cursor:pointer;font-size:16px}
+footer{padding:20px;text-align:center;color:#666;font-size:14px;border-top:1px solid #f0f0f0;margin-top:24px}
+</style>
 </head>
 <body>
-  <header>
-    <div style="font-weight:700;font-size:20px">The DryFruits House</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section>
-    <h1>Contact Us</h1>
-    <p>📧 Email: akanksharakshe13@gmail.com<br>📱 Phone: 9322367084<br>📸 Instagram: <a href="https://instagram.com/The_Dryfruits_House" target="_blank">@The_Dryfruits_House</a></p>
-    
-    <form onsubmit="alert('Message sent!'); return false;">
-      <input name="name" placeholder="Names" required>
-      <input name="contact" placeholder="Email or Mobile No" required>
-      <textarea name="message" placeholder="Contact No" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-
-    <h2>Payment</h2>
-    <p>For the payment use above contact Number - Akanksha Rakshe</p>
-  </section>
-
+<header>
+  <h1>Place Your Order</h1>
+</header>
+<main class="container">
+  <form id="orderForm">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="address" rows="4" placeholder="Delivery Address" required></textarea>
+    <textarea name="orderDetails" rows="4" placeholder="Your Order Details (e.g., 1kg Almonds, 500g Dates)" required></textarea>
+    <button type="submit">Place Order</button>
+  </form>
+  <div id="successMsg" style="display:none;color:green;margin-top:10px">Order placed successfully! Check your email.</div>
   <footer>
-    © 2025 The DryFruits House | Crafted with ❤️ by Akanksha
+    © <span id="year"></span> The DryFruits House
   </footer>
+</main>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+  console.log('Order Data:', data);
+  alert('Order placed! You will receive an email confirmation.');
+  this.reset();
+  document.getElementById('successMsg').style.display='block';
+});
+</script>
 </body>
 </html>
+
